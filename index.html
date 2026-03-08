@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de IVA Chile (19%). Obtén el valor neto, bruto y el impuesto de forma instantánea. Herramienta gratuita y fácil de usar.">
+    <title>Calculadora de IVA Chile (19%) - Neto y Bruto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+                </svg>
+                Calculadora IVA
+            </a>
+            <div class="nav-links">
+                <a href="#calculadora">Inicio</a>
+                <a href="#informacion">¿Cómo se calcula?</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="ad-space">Espacio para Anuncio (728x90)</div>
+
+        <div class="app-container" id="calculadora">
+            <div class="input-section">
+                <h1>Calculadora de IVA (19%)</h1>
+                <input type="number" id="main-amount" class="main-input" placeholder="Ingresa el monto..." inputmode="numeric">
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <h2>Si el monto es NETO</h2>
+                    <div class="data-row">
+                        <span>Valor Neto:</span>
+                        <span id="esc1-neto">$0</span>
+                    </div>
+                    <div class="data-row iva-amount">
+                        <span>+ IVA (19%):</span>
+                        <div class="result-with-copy">
+                            <span id="esc1-iva">$0</span>
+                            <button class="copy-btn" onclick="copyToClipboard('iva1', this)" title="Copiar IVA">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="data-row total-neto">
+                        <span>Valor Bruto:</span>
+                        <div class="result-with-copy">
+                            <span id="esc1-bruto">$0</span>
+                            <button class="copy-btn" onclick="copyToClipboard('bruto', this)" title="Copiar Total">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h2>Si el monto es BRUTO</h2>
+                    <div class="data-row">
+                        <span>Valor Bruto:</span>
+                        <span id="esc2-bruto">$0</span>
+                    </div>
+                    <div class="data-row iva-amount">
+                        <span>- IVA (19%):</span>
+                        <div class="result-with-copy">
+                            <span id="esc2-iva">$0</span>
+                            <button class="copy-btn" onclick="copyToClipboard('iva2', this)" title="Copiar IVA">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="data-row total-bruto">
+                        <span>Valor Neto:</span>
+                        <div class="result-with-copy">
+                            <span id="esc2-neto">$0</span>
+                            <button class="copy-btn" onclick="copyToClipboard('neto', this)" title="Copiar Total">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-space">Espacio para Anuncio (Adaptable)</div>
+
+        <article class="seo-content" id="informacion">
+            <h2>¿Qué es el IVA en Chile y cómo se calcula?</h2>
+            <p>El <strong>Impuesto a las Ventas y Servicios (IVA)</strong> en Chile es el principal impuesto al consumo que grava la mayoría de las ventas de bienes y prestaciones de servicios. Actualmente, la tasa del IVA en el país está fijada en un <strong>19%</strong>.</p>
+            <p>Saber cómo desglosar este impuesto es fundamental tanto para consumidores que desean entender lo que están pagando, como para emprendedores que necesitan emitir facturas, llevar su contabilidad al día o calcular el precio final de sus productos.</p>
+            <h3>Fórmulas matemáticas para calcular el IVA</h3>
+            <p>Nuestra calculadora realiza estos cálculos automáticamente en tiempo real, pero si necesitas saber la fórmula manual que se utiliza detrás, es muy sencilla:</p>
+            <ul>
+                <li><strong>De Neto a Bruto:</strong> Multiplica el valor por <strong>1.19</strong>.</li>
+                <li><strong>De Bruto a Neto:</strong> Divide el valor por <strong>1.19</strong>.</li>
+                <li><strong>Obtener solo el impuesto:</strong> Multiplica el valor Neto por <strong>0.19</strong>.</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>Ejemplo práctico para negocios:</strong><br>
+                Imagina que tienes una tienda online de dropshipping y quieres vender un producto. Si decides que el precio final para tu cliente (Bruto) será de $15.000, al dividir ese monto por 1.19, descubrirás que el valor Neto de tu producto es $12.605, y los $2.395 restantes corresponden al IVA que deberás declarar al SII.
+            </div>
+            <h3>Preguntas Frecuentes</h3>
+            <p><strong>¿Todos los productos pagan el 19% de IVA en Chile?</strong><br>
+            La regla general es que sí. Sin embargo, existen excepciones contempladas por el Servicio de Impuestos Internos (SII), como ciertos servicios de transporte, educación, y honorarios profesionales que operan bajo otras figuras tributarias.</p>
+            <p><strong>¿Qué diferencia hay entre una factura exenta y una afecta?</strong><br>
+            Una factura afecta incluye el cobro del 19% de IVA sobre el valor neto. Una factura exenta se emite por actividades comerciales que la ley libera explícitamente del pago de este impuesto.</p>
+        </article>
+
+    </main>
+
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="logo" style="color: white; font-size: 1.2rem;">
+                Calculadora IVA Chile
+            </div>
+            <p style="font-size: 0.9rem; max-width: 600px; color: #cbd5e1;">Herramienta online gratuita para calcular el Impuesto al Valor Agregado de forma rápida, segura y sin recargar la página. Los valores son referenciales.</p>
+            <div class="footer-links">
+                <a href="privacidad.html">Política de Privacidad</a>
+                <a href="terminos.html">Términos y Condiciones</a>
+            </div>
+            <div style="margin-top: 15px; font-size: 1rem; font-weight: 500; color: #abc2e8;">
+                Contacto: kratos3491@gmail.com
+            </div>
+            <div class="copyright" style="margin-top: 15px;">
+                &copy; 2026 Calculadora IVA. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const inputAmount = document.getElementById('main-amount');
+        const esc1Neto = document.getElementById('esc1-neto');
+        const esc1Iva = document.getElementById('esc1-iva');
+        const esc1Bruto = document.getElementById('esc1-bruto');
+        const esc2Bruto = document.getElementById('esc2-bruto');
+        const esc2Iva = document.getElementById('esc2-iva');
+        const esc2Neto = document.getElementById('esc2-neto');
+        const IVA_RATE = 0.19;
+
+        let rawS1Iva = 0; let rawS1Bruto = 0;
+        let rawS2Iva = 0; let rawS2Neto = 0;
+
+        const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>`;
+        const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
+
+        function formatMoney(value) {
+            return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(value);
+        }
+
+        function calculateAll() {
+            const amount = parseFloat(inputAmount.value) || 0;
+            const s1_neto = amount;
+            const s1_iva = amount * IVA_RATE;
+            const s1_bruto = amount + s1_iva;
+            
+            rawS1Iva = Math.round(s1_iva); rawS1Bruto = Math.round(s1_bruto);
+            esc1Neto.textContent = formatMoney(Math.round(s1_neto));
+            esc1Iva.textContent = formatMoney(rawS1Iva);
+            esc1Bruto.textContent = formatMoney(rawS1Bruto);
+
+            const s2_bruto = amount;
+            const s2_neto = amount / (1 + IVA_RATE);
+            const s2_iva = s2_bruto - s2_neto;
+            
+            rawS2Iva = Math.round(s2_iva); rawS2Neto = Math.round(s2_neto);
+            esc2Bruto.textContent = formatMoney(Math.round(s2_bruto));
+            esc2Iva.textContent = formatMoney(rawS2Iva);
+            esc2Neto.textContent = formatMoney(rawS2Neto);
+        }
+
+        function copyToClipboard(type, btnElement) {
+            let valueToCopy = 0;
+            if (type === 'bruto') valueToCopy = rawS1Bruto;
+            else if (type === 'neto') valueToCopy = rawS2Neto;
+            else if (type === 'iva1') valueToCopy = rawS1Iva;
+            else if (type === 'iva2') valueToCopy = rawS2Iva;
+            
+            navigator.clipboard.writeText(valueToCopy).then(() => {
+                btnElement.innerHTML = checkIcon;
+                btnElement.classList.add('copied');
+                setTimeout(() => {
+                    btnElement.innerHTML = copyIcon;
+                    btnElement.classList.remove('copied');
+                }, 2000);
+            }).catch(err => console.error(err));
+        }
+
+        inputAmount.addEventListener('input', calculateAll);
+        window.addEventListener('DOMContentLoaded', () => inputAmount.focus());
+    </script>
+</body>
+</html>
