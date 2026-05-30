@@ -122,7 +122,7 @@ main {
 }
 
 /* =========================================
-   ESTILOS DEL CONTENIDO PRINCIPAL
+   ESTILOS DEL CONTENIDO PRINCIPAL Y ANUNCIOS
    ========================================= */
 
 .ad-space {
@@ -139,6 +139,19 @@ main {
     border-radius: 12px;
     font-size: 0.9rem;
     backdrop-filter: blur(4px);
+}
+
+/* Configuraciones específicas para escritorio y móvil */
+.ad-desktop {
+    display: flex;
+}
+
+.ad-mobile {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    min-height: 100px;
+    padding: 10px;
 }
 
 .app-container {
@@ -491,6 +504,10 @@ footer {
     }
 }
 
+/* =========================================
+   MEDIA QUERIES (MÓVIL Y TABLET)
+   ========================================= */
+
 @media (min-width: 768px) {
     .cookie-banner {
         flex-direction: row;
@@ -530,5 +547,14 @@ footer {
     .legal-container {
         margin: 20px;
         padding: 25px 20px;
+    }
+
+    /* El interruptor responsivo de los anuncios */
+    .ad-desktop {
+        display: none !important;
+    }
+
+    .ad-mobile {
+        display: flex !important;
     }
 }
